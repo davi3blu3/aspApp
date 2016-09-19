@@ -9,10 +9,12 @@ namespace aspnetcoreapp
 	{
 		public void Configure(IApplicationBuilder app)
 		{
-			app.Run(context =>
-			{
-				return context.Response.WriteAsync("Helo from ASP.NET Core!");
-			});
+			app.UseStaticFiles();
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello World!");
+            });
 		}
 	}
 }
